@@ -1,0 +1,23 @@
+{
+  "Schema": 1,
+  "CatalogVersion": 1,
+  "Published": "2026-10-14",
+  "Builds": [
+    {
+      "Version": "1.36.6",
+      "OriginalHash": "8E73596109AF1BD2417FB1E048927F51CDF21260322DF8E07A33BDEA4577B318",
+      "PatchedHash": "4334BC2FFEBAD7EEF51B3E5D4B6E738DBEC25588E27388E975B2354C8A3E3A48",
+      "Needle": "hX=async i=>{var r;if(!1)return;let{APP_VERSION:e,DEVICE_ID:t}=cr().appInfo,n={enable:!0,appId:\"8311\"",
+      "Replacement": "hX=async i=>{var r;if(!1)return;let{APP_VERSION:e,DEVICE_ID:t}=cr().appInfo,n={enable:!1,appId:\"8311\"",
+      "Mechanism": "WindowsTNC"
+    },
+    {
+      "Version": "1.37.4",
+      "OriginalHash": "8F8A3E2BD61FA35AE397D5AFFF128777CACBFDF0873B5B0ECB4B5ABDF86310B9",
+      "PatchedHash": "69F90393E2A095A09E1111BE527DCCD90C776E230FB8F0EE2E1D0960EE1F5375",
+      "Needle": "LFi=[\"*://*.facebook.com/*\"",
+      "Replacement": "LFi=[\"*://*.tiktokv.com/*\",\"*://tiktokv.com/*\",\"*://*.tiktok.com/*\",\"*://tiktok.com/*\",\"*://*.tiktokv.us/*\",\"*://tiktokv.us/*\",\"*://*.tiktokv.eu/*\",\"*://tiktokv.eu/*\",\"*://*.facebook.com/*\"",
+      "Mechanism": "WindowsTTNetBypass"
+    }
+  ]
+}

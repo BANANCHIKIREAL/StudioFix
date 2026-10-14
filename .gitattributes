@@ -1,0 +1,6 @@
+* text=auto eol=lf
+*.png binary
+*.ico binary
+# This catalog is signed as bytes; checkout must not rewrite its line endings.
+publisher/studio-fix-rules.json -text
+publisher/studio-fix-rules.sig -text

@@ -1,0 +1,13 @@
+build/
+export-*/
+*.backup
+*.tmp
+*.pdb
+private-key.xml
+StudioFix-publisher-private/
+*.log
+*.network-fix.*
+settings.json
+rules-envelope.json
+shortcuts.json
+original-js-paths.json

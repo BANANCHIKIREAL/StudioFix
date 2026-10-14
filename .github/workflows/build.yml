@@ -1,0 +1,35 @@
+name: Build Windows app
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - name: Compile application and tests
+        shell: pwsh
+        run: ./build.ps1 -Tests
+      - name: Verify signed app updates
+        shell: pwsh
+        run: |
+          ./build/StudioFix.Tests.exe --app-updates-only "$env:RUNNER_TEMP/studiofix-tests"
+          if ($LASTEXITCODE -ne 0) { throw 'Update tests failed.' }
+      - name: Render compact UI
+        shell: pwsh
+        run: |
+          $proc = Start-Process ./build/StudioFix.exe -ArgumentList '--preview supported --output build/preview.png' -Wait -PassThru
+          if ($proc.ExitCode -ne 0 -or !(Test-Path build/preview.png)) { throw 'UI rendering failed.' }
+      - uses: actions/upload-artifact@v4
+        with:
+          name: StudioFix-Windows-x64
+          path: |
+            build/StudioFix.exe
+            build/preview.png
